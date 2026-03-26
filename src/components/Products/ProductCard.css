@@ -1,0 +1,328 @@
+/* ─── Card Shell ──────────────────────────────────────────────────────────── */
+.productCard {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.productCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* ─── Image Container ─────────────────────────────────────────────────────── */
+.imageContainer {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.productImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+  display: block;
+}
+
+.productCard:hover .productImage {
+  transform: scale(1.05);
+}
+
+/* ─── Badges ──────────────────────────────────────────────────────────────── */
+.badges {
+  position: absolute;
+  top: var(--spacing-sm);
+  left: var(--spacing-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  z-index: 2;
+}
+
+.badge {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: 0.6rem;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.badge.discount { background: var(--color-error);    color: var(--color-white); }
+.badge.new      { background: var(--color-highlight); color: var(--color-white); }
+.badge.combo    { background: var(--color-primary);   color: var(--color-white); }
+.badge.special  {
+  background: linear-gradient(135deg, var(--color-highlight), var(--color-highlight-light));
+  color: var(--color-white);
+}
+
+/* ─── Wishlist Button ─────────────────────────────────────────────────────── */
+.wishlistBtn {
+  position: absolute;
+  top: var(--spacing-sm);
+  right: var(--spacing-sm);
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-full);
+  background: var(--color-white);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  transition: all var(--transition-fast);
+  z-index: 2;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.wishlistBtn:hover       { transform: scale(1.1); }
+.wishlistBtn.active      { color: var(--color-error); background: #FEE2E2; }
+.wishlistBtn.active svg  { fill: var(--color-error); }
+
+/* ─── Card Content ────────────────────────────────────────────────────────── */
+.cardContent {
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.category {
+  font-size: 0.68rem;
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-xs);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.productName {
+  font-family: var(--font-primary);
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-main);
+  margin-bottom: var(--spacing-xs);
+  line-height: 1.3;
+}
+
+.productName a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.productName a:hover {
+  color: var(--color-primary);
+}
+
+.shortDescription {
+  font-size: clamp(0.78rem, 1.3vw, 0.85rem);
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+/* ─── Rating ──────────────────────────────────────────────────────────────── */
+.rating {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.stars {
+  display: flex;
+  gap: 2px;
+  color: var(--color-highlight);
+  flex-shrink: 0;
+}
+
+.stars svg.empty { color: #DDD; }
+
+.ratingText {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+.noRating {
+  font-size: 0.73rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+/* ─── Price ───────────────────────────────────────────────────────────────── */
+.priceContainer {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs) var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+  margin-top: auto;
+}
+
+.currentPrice {
+  font-family: var(--font-primary);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+}
+
+.originalPrice {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+}
+
+/* ─── Action Buttons ──────────────────────────────────────────────────────── */
+/*
+  Flexible design:
+  - flex: 1 1 0  → equal share, can shrink below content width
+  - min-width: 0 → allows shrinking past intrinsic content
+  - span text hides gracefully via overflow/ellipsis before it
+    breaks the layout; at ≤400px it vanishes entirely (icon-only)
+*/
+.cardActions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.actionBtn {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 0.6rem 0.5rem;
+  font-size: clamp(0.62rem, 1.2vw, 0.74rem);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: var(--radius-md);
+  transition: all 0.22s ease;
+  text-decoration: none;
+  min-height: 42px;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.actionBtn svg {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+}
+
+.actionBtn span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+/* Call */
+.actionBtn.call {
+  background: #5C4A32;
+  color: #FFFDF9;
+  box-shadow: 0 2px 8px rgba(92, 74, 50, 0.22);
+}
+
+.actionBtn.call:hover {
+  background: #3E3121;
+  box-shadow: 0 4px 14px rgba(92, 74, 50, 0.32);
+  transform: translateY(-1px);
+}
+
+/* WhatsApp */
+.actionBtn.whatsapp {
+  background: #2D7A4F;
+  color: #FFFDF9;
+  box-shadow: 0 2px 8px rgba(45, 122, 79, 0.22);
+}
+
+.actionBtn.whatsapp:hover {
+  background: #1E5E3A;
+  box-shadow: 0 4px 14px rgba(45, 122, 79, 0.32);
+  transform: translateY(-1px);
+}
+
+/* ─── Responsive ──────────────────────────────────────────────────────────── */
+
+/* Tablet landscape */
+@media (max-width: 1024px) {
+  .cardContent {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+}
+
+/* Tablet portrait */
+@media (max-width: 768px) {
+  .cardContent {
+    padding: var(--spacing-sm);
+  }
+
+  .shortDescription {
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+  }
+
+  .actionBtn {
+    gap: 4px;
+    padding: 0.55rem 0.4rem;
+    min-height: 40px;
+  }
+}
+
+/* Large phone */
+@media (max-width: 480px) {
+  .productName {
+    font-size: 0.88rem;
+  }
+
+  .currentPrice {
+    font-size: 1.05rem;
+  }
+}
+
+/* Small phone — icon-only buttons */
+@media (max-width: 380px) {
+  .cardContent {
+    padding: 0.5rem;
+  }
+
+  .actionBtn span {
+    display: none;
+  }
+
+  .actionBtn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .actionBtn {
+    min-height: 38px;
+    padding: 0.5rem;
+    gap: 0;
+  }
+}

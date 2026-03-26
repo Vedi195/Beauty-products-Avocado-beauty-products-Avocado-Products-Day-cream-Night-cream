@@ -1,0 +1,102 @@
+.specialOffersSection {
+  padding: var(--spacing-xxl) 0;
+  background: linear-gradient(180deg, var(--color-background) 0%, var(--color-accent) 100%);
+}
+
+.specialHeader {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.specialBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: linear-gradient(135deg, var(--color-highlight), var(--color-highlight-light));
+  color: var(--color-white);
+  font-size: 0.8rem;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: var(--radius-full);
+  margin-bottom: var(--spacing-md);
+}
+
+.specialTitle {
+  font-family: var(--font-primary);
+  font-size: 2.25rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-main);
+  margin-bottom: var(--spacing-sm);
+}
+
+.specialSubtitle {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Promo Banner */
+.promoBanner {
+  background: var(--color-primary);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-xl);
+}
+
+.promoContent h3 {
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white);
+  margin-bottom: var(--spacing-xs);
+}
+
+.promoContent p {
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+.promoAction {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.promoBtn {
+  padding: var(--spacing-sm) var(--spacing-xl);
+  background: var(--color-white);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.promoBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-floating);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .promoBanner {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--spacing-lg);
+  }
+
+  .promoContent h3 {
+    font-size: 1.25rem;
+  }
+
+  .specialTitle {
+    font-size: 1.75rem;
+  }
+}

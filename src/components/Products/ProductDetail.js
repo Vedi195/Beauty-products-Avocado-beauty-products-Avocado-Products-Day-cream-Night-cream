@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useWishlist } from '../../context/WishlistContext';
-import { useRating } from '../../hooks/useRating';
 import {
   formatPrice,
   getWhatsAppLink,
@@ -48,20 +47,9 @@ const ProductDetail = () => {
   const navigate = useNavigate();
 
   const [selectedImage, setSelectedImage] = useState(0);
-  const [userRating, setUserRating] = useState(0);
-  const [hoverRating, setHoverRating] = useState(0);
-  const [ratingSubmitted, setRatingSubmitted] = useState(false);
-
   const { isInWishlist, toggleWishlist } = useWishlist();
   const product = products?.find((p) => p.id === id);
 
-  const {
-    averageRating = 0,
-    totalRatingCount = 0,
-    ratingBreakdown = {},
-    loading: ratingLoading,
-    submitRating,
-  } = useRating(id);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -97,18 +85,6 @@ const ProductDetail = () => {
     added
       ? toast.success('Saved to wishlist')
       : toast('Removed from wishlist');
-  };
-
-  const handleStarClick = async (star) => {
-    setUserRating(star);
-    await submitRating?.(star);
-    setRatingSubmitted(true);
-  };
-
-  const getBreakdownPercent = (star) => {
-    if (!totalRatingCount) return 0;
-    const count = ratingBreakdown?.[star] || 0;
-    return Math.round((count / totalRatingCount) * 100);
   };
 
   return (
@@ -168,58 +144,11 @@ const ProductDetail = () => {
             <div className="ratingSection">
               <div className="ratingDisplay">
                 <span className="ratingNumber">
-                  {ratingLoading ? '—' : averageRating.toFixed(1)}
+                  {product.rating?.toFixed(1) || '0.0'}
                 </span>
                 <div className="ratingStars">
-                  {renderStars(averageRating)}
-                  <span className="ratingCount">
-                    {totalRatingCount > 0
-                      ? `${totalRatingCount} rating${totalRatingCount !== 1 ? 's' : ''}`
-                      : 'No ratings yet'}
-                  </span>
+                  {renderStars(product.rating || 0 )}
                 </div>
-              </div>
-
-              {/* Breakdown bars */}
-              {totalRatingCount > 0 && (
-                <div className="ratingBreakdown">
-                  {[5, 4, 3, 2, 1].map((star) => (
-                    <div className="breakdownRow" key={star}>
-                      <span className="breakdownLabel">{star}★</span>
-                      <div className="breakdownBar">
-                        <div
-                          className="breakdownFill"
-                          style={{ width: `${getBreakdownPercent(star)}%` }}
-                        />
-                      </div>
-                      <span className="breakdownPercent">
-                        {getBreakdownPercent(star)}%
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              )}
-
-              {/* User rating */}
-              <div className="userRating">
-                <p className="userRatingTitle">Your Rating</p>
-                <div className="starSelector">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <button
-                      key={star}
-                      className={`starBtn ${(hoverRating || userRating) >= star ? 'active' : ''}`}
-                      onClick={() => handleStarClick(star)}
-                      onMouseEnter={() => setHoverRating(star)}
-                      onMouseLeave={() => setHoverRating(0)}
-                      aria-label={`Rate ${star} stars`}
-                    >
-                      <StarIcon filled={(hoverRating || userRating) >= star} />
-                    </button>
-                  ))}
-                </div>
-                {ratingSubmitted && (
-                  <p className="ratingThanks">Thank you for your review ✦</p>
-                )}
               </div>
             </div>
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useWishlist } from '../../context/WishlistContext';
-import { useRating } from '../../hooks/useRating';
 import {
   formatPrice,
   getWhatsAppLink,
@@ -17,7 +16,6 @@ const FALLBACK_IMAGE =
 const ProductCard = ({ product }) => {
 
   const { isInWishlist, toggleWishlist } = useWishlist();
-  const { averageRating, totalRatingCount, loading: ratingLoading } = useRating(product.id);
 
   if (!product) return null; // safety
 
@@ -111,11 +109,11 @@ const ProductCard = ({ product }) => {
 
         {/* Rating */}
         <div className="rating">
-          {!ratingLoading && averageRating > 0 ? (
+          {product.rating ? (
             <>
-              {renderStars(averageRating)}
+              {renderStars(product.rating)}
               <span className="ratingText">
-                {averageRating.toFixed(1)} ({totalRatingCount})
+                {product.rating.toFixed(1)} ({product.ratingCount || 0})
               </span>
             </>
           ) : (

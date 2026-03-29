@@ -1,14 +1,16 @@
 import DayCream from '../assets/DC.jpeg';
 import NightCream from '../assets/NC.jpeg';
 import CharcoalSoap1 from '../assets/charcolshop1.png';
-import CharcoalSoap2 from '../assets/charcolsoap2.jpeg';
+import CharcoalSoap2 from '../assets/charcolsoap2.png';
 import CharcoalFacialkit from '../assets/Cfacialkit.jpeg';
 import DimondFacialkit from '../assets/Dfacialkit.jpeg';
-import CompactPowder from '../assets/CompactPowder.jpeg';
+import CompactPowder from '../assets/CompactPowder.png';
 import VadhiyaCream from '../assets/VadhiyaCream.jpeg';
 import LipBalm from '../assets/Lipbalm.jpg';
-import RiceFaceWash from '../assets/RiceFacewash.jpeg';
-
+import RiceFaceWash from '../assets/RiceFacewash.png';
+import CoffeeSoap from "../assets/coffeesoap.png";
+import Daycream_Nightcream from "../assets/daynightcombo.png";
+import AvocadoCombo from "../assets/avocadocombo.png";
 
 const products = [
   {
@@ -22,8 +24,8 @@ const products = [
     originalPrice: 599,
     discountPercent: 10,
     images: [DayCream],
-    rating: 0,
-    totalReviews: 0,
+    rating: 4.9,
+    ratingCount: 194,
     isCombo: false,
     isSpecial: true,
     isNewArrival: false,
@@ -42,11 +44,11 @@ const products = [
     originalPrice: 543,
     discountPercent: 10,
     images: [NightCream],
-    rating: 0,
-    totalReviews: 0,
+    rating: 4.5,
+    ratingCount: 190,
     isCombo: false,
-    isSpecial: false,
-    isNewArrival: true,
+    isSpecial: true,
+    isNewArrival: false,
     isFeatured: true,
     tags: ["moisturizer", "organic"]
   },
@@ -59,10 +61,10 @@ const products = [
     category: "Skincare",
     gender: "",
     price: 149,
-    originalPrice: 199,
+    originalPrice: 140,
     images: [CharcoalSoap1],
-    rating: 0,
-    totalReviews: 0,
+    rating: 4,
+    ratingCount: 140,
     isCombo: false,
     isSpecial: false,
     isNewArrival: true,
@@ -80,13 +82,13 @@ const products = [
     price: 149,
     originalPrice: 199,
     images: [CharcoalSoap2],
-    rating: 0,
-    totalReviews: 0,
+    rating: 4.1,
+    ratingCount: 120,
     isCombo: false,
     isSpecial: false,
     isNewArrival: true,
     isFeatured: true,
-    tags: ["moisturizer", "organic"]
+    tags: ["soap", "organic"]
   },
 
   {
@@ -100,13 +102,13 @@ const products = [
     originalPrice: 629,
     discountPercent: 20,
     images: [CharcoalFacialkit],
-    rating: 0,
-    totalReviews: 0,
+    rating: 4.2,
+    ratingCount: 136,
     isCombo: false,
     isSpecial: false,
-    isNewArrival: true,
+    isNewArrival: false,
     isFeatured: true,
-    tags: ["moisturizer", "organic"]
+    tags: ["facial kit", "organic"]
   },
 
   {
@@ -120,37 +122,53 @@ const products = [
     originalPrice: 689,
     discountPercent: 20,
     images: [DimondFacialkit],
-    rating: 0,
-    totalReviews: 0,
+    rating: 4.7,
+    ratingCount: 151,
     isCombo: false,
     isSpecial: false,
     isNewArrival: true,
     isFeatured: true,
-    tags: ["moisturizer", "organic"]
+    tags: ["facial kit", "organic"]
   },
 
   {
     id: "7",
-    name: "Avocado Compact Powder",
+    name: "Green Tea Compact Powder",
     shortDescription: "Natural glow with pure avocado extracts",
-    fullDescription: "Our Avocado Compact Powder provides a natural glow with 100% pure avocado extracts.",
+    fullDescription: "Our Green Tea Compact Powder provides a natural glow with 100% pure green tea extracts.",
     category: "Skincare",
     gender: "",
     price: 199,
-    originalPrice: 219,
-    discountPercent: 10,
     images: [CompactPowder],
-    rating: 0,
-    totalReviews: 0,
-    isCombo: false,
+    rating: 4.3,
+    ratingCount: 128,
+    isCombo: true,
     isSpecial: false,
-    isNewArrival: true,
+    isNewArrival: false,
     isFeatured: true,
     tags: ["organic", "makeup"]
   },
 
   {
     id: "8",
+    name: "Coffee Soap",
+    shortDescription: "Intensive care for dry and cracked feet",
+    fullDescription: "Our Coffee Soap provides intensive care for dry and cracked feet with natural ingredients.",
+    category: "Skincare",
+    gender: "",
+    price: 149,
+    images: [CoffeeSoap],
+    rating: 4,
+    ratingCount: 132,
+    isCombo: false,
+    isSpecial: false,
+    isNewArrival: true,
+    isFeatured: true,
+    tags: ["soap", "organic"]
+  },
+
+  {
+    id: "9",
     name: "Vadhiya Foot Cream",
     shortDescription: "Intensive care for dry and cracked feet",
     fullDescription: "Our Vadhiya Foot Cream provides intensive care for dry and cracked feet with natural ingredients.",
@@ -160,17 +178,17 @@ const products = [
     originalPrice: 279,
     discountPercent: 10,
     images: [VadhiyaCream],
-    rating: 0,
-    totalReviews: 0,
+    rating: 4.1,
+    ratingCount: 112,
     isCombo: false,
     isSpecial: false,
-    isNewArrival: true,
+    isNewArrival: false,
     isFeatured: true,
     tags: ["organic", "skincare"]
   },
 
   {
-    id: "9",
+    id: "10",
     name: "Avocado Lip Balm",
     shortDescription: "Moisturizes and protects lips",
     fullDescription: "A blend of avocado, coconut, and amla oils for healthy, hydrated lips.",
@@ -178,17 +196,17 @@ const products = [
     gender: "",
     price: 149,
     images: [LipBalm],
-    rating: 0,
-    totalReviews: 0,
+    rating: 4.6,
+    ratingCount: 104,
     isCombo: false,
     isSpecial: false,
     isNewArrival: true,
     isFeatured: true,
-    tags: ["hair oil", "growth"]
+    tags: ["makeup", "organic"]
   },
 
   {
-    id: "10",
+    id: "11",
     name: "Rise Face Wash",
     shortDescription: "Gently cleanses and refreshes the face",
     fullDescription: "A gentle face wash that cleanses and refreshes the skin without stripping its natural oils.",
@@ -198,15 +216,55 @@ const products = [
     originalPrice: 219,
     discountPercent: 5,
     images: [RiceFaceWash],
-    rating: 0,
-    totalReviews: 0,
+    rating: 4.3,
+    ratingCount: 164,
     isCombo: false,
     isSpecial: false,
     isNewArrival: true,
     isFeatured: true,
     tags: ["organic", "skincare"]
-  }
+  },
 
+  // Add combo products here if needed
+  {
+    id: "12",
+    name : "Avocado Day & Night Cream Combo",
+    shortDescription: "Day Cream + Night Cream combo for complete skincare",
+    fullDescription: "Our Avocado Day & Night Cream Combo provides complete skincare with our signature day and night creams.",
+    category: "Skincare",
+    gender: "",
+    price: 999,
+    originalPrice: 1198,
+    discountPercent: 20,
+    images: [Daycream_Nightcream],
+    rating: 4.5,
+    ratingCount: 182,
+    isCombo: true,
+    isSpecial: true,
+    isNewArrival: false,
+    isFeatured: true,
+    tags: ["organic", "skincare"]
+  },
+  
+  {
+    id: "13",
+    name: "Avocado Cream Combo",
+    shortDescription: "Buy 2 Day Creams and get 1 Night Cream free",
+    fullDescription: "Our signature combo of 2 Day Creams and 1 Night Cream delivers intense hydration with 100% pure avocado oil.",
+    category: "Skincare",
+    gender: "",
+    price: 1100,
+    originalPrice: 1300,
+    discountPercent: 15,
+    images: [AvocadoCombo],
+    rating: 4.8,
+    ratingCount: 191,
+    isCombo: true,
+    isSpecial: true,
+    isNewArrival: false,
+    isFeatured: true,
+    tags: ["organic", "skincare"]
+  }
 
 ];
 

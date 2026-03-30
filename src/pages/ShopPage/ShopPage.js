@@ -8,7 +8,6 @@ import './ShopPage.css';
 
 const defaultFilters = {
   category: 'All',
-  gender: 'All',
   minPrice: 0,
   maxPrice: 5000,
   comboOnly: false,
@@ -65,7 +64,6 @@ const ShopPage = () => {
 
   const activeFilterTags = [];
   if (filters.category !== 'All') activeFilterTags.push({ key: 'category', label: filters.category });
-  if (filters.gender !== 'All') activeFilterTags.push({ key: 'gender', label: filters.gender });
   if (filters.comboOnly) activeFilterTags.push({ key: 'comboOnly', label: 'Combo Packs' });
   if (filters.discountOnly) activeFilterTags.push({ key: 'discountOnly', label: 'Discounted' });
   if (filters.specialOnly) activeFilterTags.push({ key: 'specialOnly', label: 'Special Offers' });

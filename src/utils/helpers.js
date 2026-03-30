@@ -52,11 +52,6 @@ export const filterProducts = (products, filters) => {
       return false;
     }
 
-    // Gender filter
-    if (filters.gender && filters.gender !== 'All' && product.gender !== filters.gender) {
-      return false;
-    }
-
     // Price range filter
     if (filters.minPrice && product.price < filters.minPrice) {
       return false;

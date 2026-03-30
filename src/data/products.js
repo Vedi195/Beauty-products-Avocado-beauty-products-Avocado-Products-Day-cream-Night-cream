@@ -18,7 +18,7 @@ const products = [
     name: "Avocado Day Cream",
     shortDescription: "Deep hydration with pure avocado extracts",
     fullDescription: "Our signature Avocado Day Cream delivers intense hydration with 100% pure avocado oil.",
-    category: "Skincare",
+    category: "Skin Care",
     gender: "",
     price: 499,
     originalPrice: 599,
@@ -38,7 +38,7 @@ const products = [
     name: "Avocado Night Cream",
     shortDescription: "Deep hydration with pure avocado extracts",
     fullDescription: "Our signature Avocado Night Cream delivers intense hydration with 100% pure avocado oil.",
-    category: "Skincare",
+    category: "Skin Care",
     gender: "",
     price: 489,
     originalPrice: 543,
@@ -58,7 +58,7 @@ const products = [
     name: "Avocado Charcoal Soap",
     shortDescription: "Deep cleansing with natural charcoal",
     fullDescription: "Our Avocado Charcoal Soap provides deep cleansing while nourishing your skin.",
-    category: "Skincare",
+    category: "Bath & Body",
     gender: "",
     price: 149,
     originalPrice: 140,
@@ -77,7 +77,7 @@ const products = [
     name: "Avocado Charcoal Soap",
     shortDescription: "Deep cleansing with natural charcoal",
     fullDescription: "Our Avocado Charcoal Soap provides deep cleansing while nourishing your skin.",
-    category: "Skincare",
+    category: "Bath & Body",
     gender: "",
     price: 149,
     originalPrice: 199,
@@ -96,7 +96,7 @@ const products = [
     name: "Avocado Charcoal Facial Kit",
     shortDescription: "Complete skincare solution with natural charcoal",
     fullDescription: "Our Avocado Charcoal Facial Kit provides a complete skincare routine with natural charcoal.",
-    category: "Skincare",
+    category: "Face Care",
     gender: "",
     price: 499,
     originalPrice: 629,
@@ -116,7 +116,7 @@ const products = [
     name: "Avocado Dimond Facial Kit",
     shortDescription: "Luxurious skincare solution with natural diamonds",
     fullDescription: "Our Avocado Dimond Facial Kit provides a luxurious skincare routine with natural diamonds.",
-    category: "Skincare",
+    category: "Face Care",
     gender: "",
     price: 549,
     originalPrice: 689,
@@ -136,7 +136,7 @@ const products = [
     name: "Green Tea Compact Powder",
     shortDescription: "Natural glow with pure avocado extracts",
     fullDescription: "Our Green Tea Compact Powder provides a natural glow with 100% pure green tea extracts.",
-    category: "Skincare",
+    category: "Makeup",
     gender: "",
     price: 199,
     images: [CompactPowder],
@@ -154,7 +154,7 @@ const products = [
     name: "Coffee Soap",
     shortDescription: "Intensive care for dry and cracked feet",
     fullDescription: "Our Coffee Soap provides intensive care for dry and cracked feet with natural ingredients.",
-    category: "Skincare",
+    category: "Bath & Body",
     gender: "",
     price: 149,
     images: [CoffeeSoap],
@@ -172,7 +172,7 @@ const products = [
     name: "Vadhiya Foot Cream",
     shortDescription: "Intensive care for dry and cracked feet",
     fullDescription: "Our Vadhiya Foot Cream provides intensive care for dry and cracked feet with natural ingredients.",
-    category: "Skincare",
+    category: "Foot Care",
     gender: "",
     price: 249,
     originalPrice: 279,
@@ -184,7 +184,7 @@ const products = [
     isSpecial: false,
     isNewArrival: false,
     isFeatured: true,
-    tags: ["organic", "skincare"]
+    tags: ["organic", "Skin Care"]
   },
 
   {
@@ -192,7 +192,7 @@ const products = [
     name: "Avocado Lip Balm",
     shortDescription: "Moisturizes and protects lips",
     fullDescription: "A blend of avocado, coconut, and amla oils for healthy, hydrated lips.",
-    category: "Skincare",
+    category: "Lip Care",
     gender: "",
     price: 149,
     images: [LipBalm],
@@ -210,7 +210,7 @@ const products = [
     name: "Rise Face Wash",
     shortDescription: "Gently cleanses and refreshes the face",
     fullDescription: "A gentle face wash that cleanses and refreshes the skin without stripping its natural oils.",
-    category: "Skincare",
+    category: "Face Care",
     gender: "",
     price: 199,
     originalPrice: 219,
@@ -222,7 +222,7 @@ const products = [
     isSpecial: false,
     isNewArrival: true,
     isFeatured: true,
-    tags: ["organic", "skincare"]
+    tags: ["organic", "Skin Care"]
   },
 
   // Add combo products here if needed
@@ -231,7 +231,7 @@ const products = [
     name : "Avocado Day & Night Cream Combo",
     shortDescription: "Day Cream + Night Cream combo for complete skincare",
     fullDescription: "Our Avocado Day & Night Cream Combo provides complete skincare with our signature day and night creams.",
-    category: "Skincare",
+    category: "Skin Care",
     gender: "",
     price: 999,
     originalPrice: 1198,
@@ -243,7 +243,7 @@ const products = [
     isSpecial: true,
     isNewArrival: false,
     isFeatured: true,
-    tags: ["organic", "skincare"]
+    tags: ["organic", "Skin Care"]
   },
   
   {
@@ -251,7 +251,7 @@ const products = [
     name: "Avocado Cream Combo",
     shortDescription: "Buy 2 Day Creams and get 1 Night Cream free",
     fullDescription: "Our signature combo of 2 Day Creams and 1 Night Cream delivers intense hydration with 100% pure avocado oil.",
-    category: "Skincare",
+    category: "Skin Care",
     gender: "",
     price: 1100,
     originalPrice: 1300,
@@ -263,7 +263,7 @@ const products = [
     isSpecial: true,
     isNewArrival: false,
     isFeatured: true,
-    tags: ["organic", "skincare"]
+    tags: ["organic", "Skin Care"]
   }
 
 ];

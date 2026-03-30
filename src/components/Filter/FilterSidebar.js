@@ -10,7 +10,15 @@ const FilterSidebar = ({
 }) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  const categories = getCategories(products) || [];
+  const categories = [
+    "All",
+    "Skin Care",
+    "Foot Care",
+    "Bath & Body",
+    "Makeup",
+    "Lip Care",
+    "Face Care",
+  ].filter((cat) => cat === "All" || products.some((p) => p.category === cat)); 
 
   const handleSortChange = (e) => {
     onFilterChange({ ...filters, sortBy: e.target.value });
@@ -27,10 +35,6 @@ const FilterSidebar = ({
 
   const handleToggleChange = (key) => {
     onFilterChange({ ...filters, [key]: !filters[key] });
-  };
-
-  const handleGenderChange = (gender) => {
-    onFilterChange({ ...filters, gender });
   };
 
   const FilterContent = () => (
@@ -115,23 +119,6 @@ const FilterSidebar = ({
         ))}
       </div>
 
-      {/* Gender */}
-      <div className="filterGroup">
-        <label className="filterGroupTitle">Gender</label>
-        <div className="genderOptions">
-          {['All', 'Male', 'Female', 'Unisex'].map((g) => (
-            <button
-              key={g}
-              className={`genderOption ${
-                filters.gender === g ? 'active' : ''
-              }`}
-              onClick={() => handleGenderChange(g)}
-            >
-              {g}
-            </button>
-          ))}
-        </div>
-      </div>
     </>
   );
 

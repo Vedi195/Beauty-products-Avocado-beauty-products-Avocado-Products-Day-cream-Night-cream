@@ -6,11 +6,20 @@ import SpecialOffers from '../../components/SpecialOffers/SpecialOffers';
 import products from '../../data/products';
 import './HomePage.css';
 
-const categories = [
-  { name: 'Skincare', icon: '✨', count: products.filter(p => p.category === 'Skincare').length },
-  { name : 'Foot Care', icon: '👣', count: products.filter(p => p.category === 'Foot Care').length },
-  { name : 'Face Care', icon: '🌿', count: products.filter(p => p.category === 'Face Care').length },
-  { name : 'Bath & Body', icon: '🛁', count: products.filter(p => p.category === 'Bath & Body').length },];
+const categoryIcons = {
+  "Skin Care": "✨",
+  "Face Care": "🌿",
+  "Foot Care": "👣",
+  "Bath & Body": "🛁",
+  "Makeup": "🪞",
+  "Lip Care": "💄",
+};
+
+const categories = Object.keys(categoryIcons).map((cat) => ({
+  name: cat,
+  icon: categoryIcons[cat],
+  count: products.filter(p => p.category === cat).length
+}));
 
 const whyChooseUs = [
   {
@@ -31,7 +40,7 @@ const whyChooseUs = [
   {
     icon: '🚚',
     title: 'Fast Delivery',
-    text: 'Quick and reliable charging delivery across India. Your wellness, delivered to your doorstep.'
+    text: 'Quick and reliable delivery across India. Delivery charges may apply.'
   }
 ];
 

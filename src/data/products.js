@@ -100,7 +100,7 @@ const products = [
     gender: "",
     price: 499,
     originalPrice: 629,
-    discountPercent: 20,
+    discountPercent: 22,
     images: [CharcoalFacialkit],
     rating: 4.2,
     ratingCount: 136,

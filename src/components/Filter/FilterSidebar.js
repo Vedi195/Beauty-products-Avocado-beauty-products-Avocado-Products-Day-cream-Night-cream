@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { getCategories } from '../../utils/helpers';
 import products from '../../data/products.js';
 import './FilterSidebar.css';
 
